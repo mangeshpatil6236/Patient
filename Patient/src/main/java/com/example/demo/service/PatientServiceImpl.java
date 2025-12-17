@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,5 +111,66 @@ public class PatientServiceImpl implements PatientService {
 		// TODO Auto-generated method stub
 		return pr.searchByGender(gender);
 	}
+
+	@Override
+	public List<Patient> sortByName() {
+		// TODO Auto-generated method stub
+		List<Patient> list = pr.findAll();
+
+		Collections.sort(list, new Comparator<Patient>() {
+
+			@Override
+			public int compare(Patient o1, Patient o2) {
+				return o1.getName().compareTo(o2.getName());
+			}
+		});
+
+		return list;
+	}
+
+	@Override
+	public List<Patient> sortByAge() {
+		// TODO Auto-generated method stub
+		List<Patient> list = pr.findAll();
+		
+		Collections.sort(list, new Comparator<Patient>() {
+			
+			@Override
+			public int compare(Patient o1, Patient o2) {
+				return o1.getAge().compareTo(o2.getAge());
+			}
+		});
+		return list;
+	}
+
+	@Override
+	public List<Patient> sortByEmail() {
+		// TODO Auto-generated method stub
+		List<Patient>list = pr.findAll();
+		
+		Collections.sort(list, new Comparator<Patient>() {
+			
+			public int compare(Patient p1, Patient p2) {
+				return p1.getEmail().compareTo(p2.getEmail());
+			}
+		});
+		return list;
+	}
+
+	@Override
+	public List<Patient> sortByDate() {
+		// TODO Auto-generated method stub
+		List<Patient> list = pr.findAll();
+		
+		Collections.sort(list, new Comparator<Patient>() {
+			
+			public int compare(Patient p1, Patient p2) {
+				return p1.getDate().compareTo(p2.getDate());
+			}
+		});
+		return list;
+	}
+	
+	
 
 }

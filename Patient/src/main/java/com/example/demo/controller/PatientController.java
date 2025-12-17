@@ -70,6 +70,39 @@ public class PatientController {
 	public List<Patient> searchByGender(@PathVariable String gender) {
 		return ps.searchByGender(gender);
 	}
+	
+	
+	@PostMapping("sortbyname")
+	public List<Patient> sortByName(){
+		return ps.sortByName();
+	}
+	
+	@PostMapping("sortByAge")
+	public List<Patient> sortByAge(){
+		return ps.sortByAge();
+	}
+	
+	@PostMapping("sortbyemail")
+	public List<Patient> sortByEmail(){
+		return ps.sortByEmail();
+	}
+	
+	@PostMapping("sortbydate")
+	public List<Patient> sortByDate(){
+		return ps.sortByDate();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 //	@GetMapping("searchbyid = {id}")
 //	public Patient searchById(@PathVariable Integer id) {
